@@ -1,6 +1,8 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "utils.h"
+#include "for_jump.h"
 
 
 long	power ();
@@ -19,13 +21,7 @@ extern struct species_data	*c_species[MAX_SPECIES];
 /* The following routine will return TRUE if a round of combat actually
    occurred. Otherwise, it will return false. */
 
-int do_round (option, round_number, bat, act)
-
-char			option;
-int			round_number;
-struct battle_data	*bat;
-struct action_data	*act;
-
+int do_round (char option, int round_number, struct battle_data *bat, struct action_data *act)
 {
     int		i, j, n, unit_index, combat_occurred, total_shots,
 		attacker_index, defender_index, found, chance_to_hit,
@@ -134,7 +130,7 @@ struct action_data	*act;
 	    attacking_ship = (struct ship_data *) act->fighting_unit[attacker_index];
 	    i = act->fighting_species_index[attacker_index];
 	    ignore_field_distorters = ! field_distorted[i];
-	    sprintf (attacker_name, "%s\0", ship_name (attacking_ship));
+	    sprintf (attacker_name, "%s", ship_name (attacking_ship));
 	    ignore_field_distorters = FALSE;
 
 	    /* Check if ship can fight. */
@@ -147,7 +143,7 @@ struct action_data	*act;
 	else
 	{
 	    attacking_nampla = (struct nampla_data *) act->fighting_unit[attacker_index];
-	    sprintf (attacker_name, "PL %s\0", attacking_nampla->name);
+	    sprintf (attacker_name, "PL %s", attacking_nampla->name);
 
 	    /* Check if planet still has defenses. */
 	    if (attacking_nampla->item_quantity[PD] == 0) continue;
@@ -222,14 +218,14 @@ struct action_data	*act;
 	    defending_ship =
 		(struct ship_data *) act->fighting_unit[defender_index];
 	    ignore_field_distorters = ! field_distorted[j];
-	    sprintf (defender_name, "%s\0", ship_name (defending_ship));
+	    sprintf (defender_name, "%s", ship_name (defending_ship));
 	    ignore_field_distorters = FALSE;
 	}
 	else
 	{
 	    defending_nampla =
 		(struct nampla_data *) act->fighting_unit[defender_index];
-	    sprintf (defender_name, "PL %s\0", defending_nampla->name);
+	    sprintf (defender_name, "PL %s", defending_nampla->name);
 	}
 
 	/* Print round number. */

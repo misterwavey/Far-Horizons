@@ -3,6 +3,12 @@
 #include "utils.h"
 #include "cons_opt.h"
 #include "fight_par.h"
+#include "with_check.h"
+#include "do_round.h"
+#include "regen_sh.h"
+#include "do_germ.h"
+#include "do_bomb.h"
+#include "do_siege.h"
 
 
 int		first_battle = TRUE;
@@ -656,7 +662,7 @@ do_combat:
 	}
 
 	/* Open a temporary species log file for appending. */
-	sprintf (filename, "sp%02d.temp.log\0", species_number);
+	sprintf (filename, "sp%02d.temp.log", species_number);
 	species_log = fopen (filename, "a");
 	if (species_log == NULL)
 	{

@@ -1,15 +1,13 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "regen_sh.h"
 
 
 extern struct species_data	*c_species[MAX_SPECIES];
 
 
-regenerate_shields (act)
-
-struct action_data	*act;
-
+regenerate_shields (struct action_data	*act)
 {
     int			i, species_index, unit_index;
 

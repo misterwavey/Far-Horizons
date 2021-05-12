@@ -1,6 +1,7 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "do_bomb.h"
 
 
 long	power ();
