@@ -1,6 +1,6 @@
 
 #include "fh.h"
-
+#include "do_deep.h"
 
 extern int			first_pass;
 extern char			input_line[256], original_line[256],
@@ -8,8 +8,7 @@ extern char			input_line[256], original_line[256],
 extern FILE			*log_file;
 extern struct ship_data		*ship;
 
-
-do_DEEP_command ()
+void do_DEEP_command ()
 {
     int		i, found;
 

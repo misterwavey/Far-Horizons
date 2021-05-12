@@ -7,6 +7,8 @@
 
 
 #include "fh.h"
+#include "parse.h"
+#include "utils.h"
 
 
 int			g_spec_number;

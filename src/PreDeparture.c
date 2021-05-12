@@ -2,7 +2,36 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_transact.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "parse.h"
+#include "gam_abo.h"
+#include "sav_transact.h"
+#include "get_transact.h"
+#include "sav_star.h"
+#include "sav_plan.h"
+#include "do_ally.h"
+#include "do_base.h"
+#include "do_deep.h"
+#include "do_des.h"
+#include "do_disband.h"
+#include "do_enemy.h"
+#include "do_inst.h"
+#include "do_land.h"
+#include "do_mes.h"
+#include "do_name.h"
+#include "do_neutral.h"
+#include "do_orbit.h"
+#include "do_rep.h"
+#include "do_scan.h"
+#include "do_send.h"
+#include "do_tran.h"
+#include "do_unl.h"
 
+void do_predeparture_orders ();
 
 int	post_arrival_phase = FALSE;
 
@@ -30,7 +59,7 @@ extern unsigned long	last_random;
 extern FILE		*input_file, *log_file;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -132,7 +161,7 @@ start_pass:
 	ship_base = ship_data[species_index];
 
 	/* Open orders file for this species. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	input_file = fopen (filename, "r");
 	if (input_file == NULL)
 	{
@@ -213,7 +242,7 @@ find_start:
 	else
 	{
 	    /* Open log file for appending. */
-	    sprintf (filename, "sp%02d.log\0", species_number);
+	    sprintf (filename, "sp%02d.log", species_number);
 	    log_file = fopen (filename, "a");
 	    if (log_file == NULL)
 	    {
@@ -263,7 +292,7 @@ done_orders:
 
 
 
-do_predeparture_orders ()
+void do_predeparture_orders ()
 
 {
     int		i, command, old_test_mode;

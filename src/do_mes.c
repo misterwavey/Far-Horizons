@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_mes.h"
 
 
 extern int			abbr_type, first_pass, species_number,

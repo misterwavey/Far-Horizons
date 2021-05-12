@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_enemy.h"
 
 
 extern int			abbr_type, g_spec_number;
@@ -8,7 +9,7 @@ extern FILE			*log_file;
 extern struct species_data	*species;
 
 
-do_ENEMY_command ()
+void do_ENEMY_command ()
 
 {
     int		i, array_index, bit_number;

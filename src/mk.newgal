@@ -1,18 +1,18 @@
 
 NEW_OBJS = NewGalaxy.o get_star.o utils.o gen_plan.o
-
+CC_OPTS = -g -Wall
 
 NewGalaxy: $(NEW_OBJS)
-	cc $(NEW_OBJS) -o ../bin/NewGalaxy
+	cc $(CC_OPTS) $(NEW_OBJS)  -o ../bin/NewGalaxy
 
 NewGalaxy.o: NewGalaxy.c fh.h
-	cc -c NewGalaxy.c
+	cc $(CC_OPTS) -c NewGalaxy.c
 
 utils.o: utils.c utils.h fh.h
-	cc -c utils.c
+	cc $(CC_OPTS) -c utils.c
 
 gen_plan.o: gen_plan.c gen_plan.h fh.h
-	cc -c gen_plan.c
+	cc $(CC_OPTS) -c gen_plan.c
 
 get_star.o: get_star.c fh.h
-	cc -c get_star.c
+	cc $(CC_OPTS) -c get_star.c

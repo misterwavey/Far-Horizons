@@ -1,14 +1,13 @@
 
 #include "fh.h"
-
+#include "do_neutral.h"
 
 extern int			abbr_type, g_spec_number;
 extern char			input_line[256], g_spec_name[32];
 extern FILE			*log_file;
 extern struct species_data	*species;
 
-
-do_NEUTRAL_command ()
+void do_NEUTRAL_command ()
 
 {
     int		i, array_index, bit_number;

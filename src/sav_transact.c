@@ -1,13 +1,10 @@
 
 #include "fh.h"
 
-
 extern int	num_transactions;
-
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
-
-save_transaction_data ()
+void save_transaction_data ()
 
 {
     int		i, trans_fd;

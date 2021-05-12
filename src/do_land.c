@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_land.h"
 
 
 extern int			first_pass, num_transactions, species_number;
@@ -14,7 +15,7 @@ extern struct ship_data		*ship;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_LAND_command ()
+void do_LAND_command ()
 {
     int		i, n, found, siege_effectiveness, landing_detected, landed,
 		alien_number, alien_index, alien_pn, array_index, bit_number,

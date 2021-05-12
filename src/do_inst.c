@@ -1,6 +1,6 @@
 
 #include "fh.h"
-
+#include "do_inst.h"
 
 extern int			abbr_index, species_number;
 extern char			input_line[256];
@@ -11,7 +11,7 @@ extern struct species_data	*species;
 extern struct nampla_data	*nampla;
 
 
-do_INSTALL_command ()
+void do_INSTALL_command ()
 {
     int		i, item_class, item_count, num_available, do_all_units,
 		recovering_home_planet, alien_index;

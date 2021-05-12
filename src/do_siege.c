@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "do_siege.h"
+#include "utils.h"
+#include "parse.h"
 
 
 

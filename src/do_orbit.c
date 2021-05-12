@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_orbit.h"
 
 
 extern int			first_pass, num_stars;
@@ -14,7 +15,7 @@ extern struct nampla_data	*nampla, *nampla_base;
 extern struct ship_data		*ship;
 
 
-do_ORBIT_command ()
+void do_ORBIT_command ()
 {
     int		i, found, specified_planet_number;
 

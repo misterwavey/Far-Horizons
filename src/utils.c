@@ -278,7 +278,7 @@ long	value;
 {
     int		i, j, n, length, negative;
 
-    char	*ptr, temp[32];
+    char	temp[32];
 
     long	abs_value;
 
@@ -360,14 +360,12 @@ struct ship_data	*ship;
     }
     else if (ship->class == TR)
     {
-	sprintf (full_ship_id, "%s%d%s %s",
-		ship_abbr[ship->class], ship->tonnage, ship_type[ship->type],
-		ship->name);
+	sprintf (full_ship_id, "%s%d%s%s",
+		ship_abbr[ship->class], ship->tonnage, ship_type[ship->type], ship->name);
     }
     else
     { 
-	sprintf (full_ship_id, "%s%s %s",
-		ship_abbr[ship->class], ship_type[ship->type], ship->name);
+	sprintf (full_ship_id, "%s%s %s", ship_abbr[ship->class], ship_type[ship->type], ship->name);
     }
 
     if (truncate_name) return &full_ship_id[0];
@@ -712,10 +710,7 @@ void log_message (char *message_filename)
    return TRUE if the nampla is populated or FALSE if not. It will also
    check if a message associated with this planet should be logged. */
 
-int check_population (nampla)
-
-struct nampla_data	*nampla;
-
+int check_population (struct nampla_data *nampla)
 {
 	int	is_now_populated, was_already_populated;
 
@@ -768,7 +763,7 @@ struct nampla_data	*nampla;
 int life_support_needed (struct species_data *species, struct planet_data *home, struct planet_data *colony)
 
 {
-    int	i, j, k, ls_needed;
+    int	i, j, ls_needed;
 
 
     i = colony->temperature_class - home->temperature_class;

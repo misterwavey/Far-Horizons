@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_scan.h"
 
 
 extern int			first_pass, test_mode;
@@ -8,7 +9,7 @@ extern FILE			*log_file;
 extern struct ship_data		*ship;
 
 
-do_SCAN_command ()
+void do_SCAN_command ()
 {
     int		i, found, x, y, z;
 

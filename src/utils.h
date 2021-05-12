@@ -18,3 +18,4 @@ int distorted (int species_number);
 void save_species_data ();
 void free_species_data ();
 void delete_ship (struct ship_data *ship);
+int check_population (struct nampla_data *nampla);

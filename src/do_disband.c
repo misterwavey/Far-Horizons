@@ -1,13 +1,13 @@
 
 #include "fh.h"
-
+#include "do_disband.h"
 
 extern char			input_line[256];
 extern FILE			*log_file;
 extern struct nampla_data	*nampla;
 
 
-do_DISBAND_command ()
+void do_DISBAND_command ()
 {
     int		found;
 

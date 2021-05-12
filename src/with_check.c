@@ -1,19 +1,14 @@
-
-
 #include "fh.h"
 #include "combat.h"
-
+#include "with_check.h"
+#include "utils.h"
 
 extern int			truncate_name, ignore_field_distorters;
 extern char			field_distorted[MAX_SPECIES];
 extern FILE			*log_file, *summary_file;
 
 
-withdrawal_check (bat, act)
-
-struct battle_data	*bat;
-struct action_data	*act;
-
+void withdrawal_check (struct battle_data *bat, struct action_data *act)
 {
     /* This routine will check all fighting ships and see if any wish to
 	withdraw. If so, it will set the ship's status to JUMPED_IN_COMBAT.
