@@ -1,5 +1,7 @@
 
 #include "fh.h"
+#include "scan.h"
+#include "utils.h"
 
 
 int				print_LSN = TRUE;
@@ -12,9 +14,7 @@ extern struct species_data	*species;
 extern struct nampla_data	*nampla_base;
 
 
-scan (x, y, z)
-
-char	x, y, z;
+void scan (char x, char y, char z)
 
 {
     int		i, j, k, n, found, num_gases, ls_needed;
@@ -120,7 +120,7 @@ char	x, y, z;
     {
 	/* There is a message that must be logged whenever this star
 		system is scanned. */
-	sprintf (filename, "message%ld.txt\0", star->message);
+	sprintf (filename, "message%ld.txt", star->message);
 	log_message (filename);
     }
 

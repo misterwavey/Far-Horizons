@@ -1,16 +1,14 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "cons_opt.h"
 
 
 int	num_combat_options;
 char	combat_option[1000], combat_location[1000];
 
 
-consolidate_option (option, location)
-
-char	option, location;
-
+void consolidate_option (char option, char location)
 {
     int		i;
 

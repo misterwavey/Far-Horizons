@@ -1,11 +1,11 @@
 
 #include "fh.h"
-
+#include "get_gal.h"
 
 extern struct galaxy_data	galaxy;
 
 
-get_galaxy_data ()
+void get_galaxy_data ()
 
 {
     int		galaxy_fd;

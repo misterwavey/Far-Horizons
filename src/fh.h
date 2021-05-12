@@ -1,12 +1,18 @@
-
+#ifndef __FH_H_INCLUDED__
+#define __FH_H_INCLUDED__
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <malloc.h>
-
+#include <stdlib.h>
+#include <time.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 #define	TRUE	1
 #define	FALSE	0
+
+ #define randnum(min, max) \
+        ((rand() % (int)(((max) + 1) - (min))) + (min))
 
 
 #define	STANDARD_NUMBER_OF_SPECIES	15
@@ -134,6 +140,9 @@ struct planet_data
     long	reserved5;	    /* Reserved for future use. Zero for now. */
 };
 
+typedef struct planet_data planet_data_t;
+
+// void generate_planets ( planet_data_t *first_planet, int num_planets, int earth_like);
 
 /* Tech level ids. */
 #define	MI	0	/* Mining tech level. */
@@ -671,3 +680,5 @@ struct trans_data
     extern char			command_name[NUM_COMMANDS][16];
     
 #endif
+#endif
+

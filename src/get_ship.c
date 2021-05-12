@@ -6,6 +6,9 @@
 
 
 #include "fh.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "utils.h"
 
 
 int	correct_spelling_required = FALSE;

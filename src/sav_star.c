@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "sav_star.h"
 
 
 extern int			num_stars;
@@ -7,7 +8,7 @@ extern int			num_stars;
 extern struct star_data		*star_base;
 
 
-save_star_data ()
+void save_star_data ()
 
 {
     int		star_fd;

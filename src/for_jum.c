@@ -1,6 +1,7 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "utils.h"
 
 
 extern int			log_summary, ignore_field_distorters;

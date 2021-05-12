@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "sav_plan.h"
 
 
 extern int			num_planets;
@@ -7,7 +8,7 @@ extern int			num_planets;
 extern struct planet_data	*planet_base;
 
 
-save_planet_data ()
+void save_planet_data ()
 
 {
     int		planet_fd;

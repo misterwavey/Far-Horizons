@@ -1,5 +1,8 @@
 #include "fh.h"
 #include "combat.h"
+#include "utils.h"
+#include "cons_opt.h"
+#include "fight_par.h"
 
 
 int		first_battle = TRUE;
@@ -23,8 +26,10 @@ extern struct nampla_data	*nampla_base, *c_nampla[MAX_SPECIES];
 extern struct ship_data		*ship_base, *c_ship[MAX_SPECIES];
 
 
+void auto_enemy (int traitor_species_number, int betrayed_species_number);
+void do_ambush (int ambushing_species_index, struct battle_data	*bat);
 
-do_battle (bat)
+void do_battle (bat)
 
 struct battle_data	*bat;
 
@@ -689,11 +694,7 @@ do_combat:
 
 
 
-do_ambush (ambushing_species_index, bat)
-
-int			ambushing_species_index;
-struct battle_data	*bat;
-
+void do_ambush (int ambushing_species_index, struct battle_data	*bat)
 {
     int		i, j, n, num_sp, ambushed_species_index, num_ships,
 		age_increment, species_number, old_truncate_name;
@@ -842,10 +843,7 @@ struct battle_data	*bat;
    both a traitor and betrayed species. It will then set a flag to indicate
    that their allegiance should be changed from ALLY to ENEMY. */
 
-auto_enemy (traitor_species_number, betrayed_species_number)
-
-int	traitor_species_number, betrayed_species_number;
-
+void auto_enemy (int traitor_species_number, int betrayed_species_number)
 {
     int		traitor_array_index, betrayed_array_index, bit_number,
 		species_index;

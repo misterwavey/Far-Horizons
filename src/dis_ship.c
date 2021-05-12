@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "dis_ship.h"
 
 
 extern struct species_data	*species;
@@ -7,10 +8,7 @@ extern struct nampla_data	*nampla_base;
 
 
 
-int disbanded_ship (ship)
-
-struct ship_data	*ship;
-
+int disbanded_ship struct ship_data	*ship)
 {
     int				nampla_index;
 

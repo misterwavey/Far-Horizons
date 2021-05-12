@@ -5,7 +5,8 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
-
+#include "utils.h"
+#include "gen_plan.h"
 
 int	species_number;
 
@@ -14,7 +15,7 @@ struct galaxy_data	galaxy;
 extern unsigned long	last_random;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

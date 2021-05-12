@@ -19,6 +19,16 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "get_transact.h"
+#include "parse.h"
+#include "combat_utils.h"
+#include "get_ship.h"
+#include "do_bat.h"
+#include "sav_plan.h"
+#include "sav_transact.h"
 
 
 int			strike_phase = FALSE;
@@ -50,7 +60,7 @@ int			num_stars, species_number, star_data_modified;
 struct star_data	*star_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -184,7 +194,7 @@ char *argv[];
 	ship_base = ship_data[species_number - 1];
 
 	/* Open orders file for this species. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	input_file = fopen (filename, "r");
 	if (input_file == NULL)
 	{
@@ -285,7 +295,7 @@ find_start:
 	}
 
 	/* Open temporary log file for appending. */
-	sprintf (filename, "sp%02d.temp.log\0", species_number);
+	sprintf (filename, "sp%02d.temp.log", species_number);
 	log_file = fopen (filename, "a");
 	if (log_file == NULL)
 	{
@@ -1044,7 +1054,7 @@ done_orders:
 	    if (! log_open)
 	    {
 		/* Open temporary species log file for appending. */
-		sprintf (filename, "sp%02d.temp.log\0", i+1);
+		sprintf (filename, "sp%02d.temp.log", i+1);
 		log_file = fopen (filename, "a");
 		if (log_file == NULL)
 		{
@@ -1092,7 +1102,7 @@ done_orders:
 	    }
 	}
 
-	sprintf (filename, "sp%02d.temp.log\0", i+1);
+	sprintf (filename, "sp%02d.temp.log", i+1);
 
 	if (save)
 	{

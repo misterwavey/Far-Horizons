@@ -1,6 +1,7 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "utils.h"
 
 
 extern int	num_transactions;
@@ -13,7 +14,7 @@ extern struct ship_data		*c_ship[MAX_SPECIES];
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_germ_warfare (attacking_species, defending_species, defender_index, bat, act)
+void do_germ_warfare (attacking_species, defending_species, defender_index, bat, act)
 
 int			attacking_species, defending_species, defender_index;
 struct battle_data	*bat;

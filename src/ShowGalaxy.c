@@ -11,7 +11,9 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
-
+#include "get_star.h"
+#include "get_gal.h"
+#include "get_plan.h"
 
 int	species_number, star_here[MAX_DIAMETER][MAX_DIAMETER];
 
@@ -23,7 +25,7 @@ extern struct planet_data	*planet_base;
 extern int	num_stars, num_planets;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

@@ -6,6 +6,15 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "scan.h"
+#include "gam_abo.h"
+#include "sav_star.h"
+
+void get_name (char name[]);
 
 int			species_number;
 
@@ -22,7 +31,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -345,13 +354,13 @@ get_xyz:
     for (i = 0; i < 6; i++)
 	printf (" %s ", gas_string[spec.poison_gas[i]]);
 
-    printf ("\n\n\tInitial mining base = %d.%d. Initial manufacturing base = %d.%d.\n",
+    printf ("\n\n\tInitial mining base = %ld.%ld. Initial manufacturing base = %ld.%ld.\n",
 	home_nampla.mi_base/10, home_nampla.mi_base%10,
 	home_nampla.ma_base/10, home_nampla.ma_base%10);
-    printf ("\tIn the first turn, %d raw material units will be produced,\n",
+    printf ("\tIn the first turn, %ld raw material units will be produced,\n",
 	(10 * spec.tech_level[MI] * home_nampla.mi_base)
 		/home_planet->mining_difficulty);
-    printf ("\tand the total production capacity will be %d.\n\n",
+    printf ("\tand the total production capacity will be %ld.\n\n",
 	(spec.tech_level[MA] * home_nampla.ma_base)/10);
 
 
@@ -383,7 +392,7 @@ get_xyz:
     save_star_data ();
 
     /* Create species file. */
-    sprintf (filename, "sp%02d.dat\0", species_number);
+    sprintf (filename, "sp%02d.dat", species_number);
 
     species_fd = creat (filename, 0600);
     if (species_fd < 0)
@@ -408,7 +417,7 @@ get_xyz:
     close (species_fd);
 
     /* Create log file for first turn. Write home star system data to it. */
-    sprintf (filename, "sp%02d.log\0", species_number);
+    sprintf (filename, "sp%02d.log", species_number);
     log_file = fopen (filename, "w");
     if (log_file == NULL)
     {
@@ -427,7 +436,7 @@ get_xyz:
     exit (0);
 }
 
-get_name (name)
+void get_name (name)
 
 char	name[];
 

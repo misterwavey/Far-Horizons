@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "get_plan.h"
 
 
 /* In case gamemaster creates new star systems with Edit program. */
@@ -11,7 +12,7 @@ int			num_planets, planet_data_modified;
 struct planet_data	*planet_base;
 
 
-get_planet_data ()
+void get_planet_data ()
 
 {
     int		planet_fd;

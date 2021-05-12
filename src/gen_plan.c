@@ -1,5 +1,7 @@
 
 #include "fh.h"
+#include "utils.h"
+#include "gen_plan.h"
 
 
 /* Generate planets. */
@@ -14,9 +16,9 @@ int	start_temp_class[10] = {0, 29, 27, 11, 9, 8,   6,   5,  5,  3};
 	   a captured planet, rather than an original member of our solar
 	   system. */
 
-generate_planets (first_planet, num_planets)
+void generate_planets (first_planet, num_planets)
 
-struct planet_data	*first_planet;
+planet_data_t	*first_planet;
 
 int	num_planets;
 
@@ -29,7 +31,7 @@ int	num_planets;
 
     char	*cp;
 
-    struct planet_data	*current_planet;
+    planet_data_t	*current_planet;
 
 
     /* Main loop. Generate one planet at a time. */

@@ -12,6 +12,9 @@
 
 #include "fh.h"
 #include "combat.h"
+#include "fight_par.h"
+
+int disbanded_ship (int species_index, struct ship_data	*sh);
 
 extern int			deep_space_defense, attacking_ML, defending_ML;
 
@@ -22,11 +25,7 @@ extern struct ship_data		*c_ship[MAX_SPECIES];
 long	power ();
 
 
-int fighting_params (option, location, bat, act)
-
-char			option, location;
-struct battle_data	*bat;
-struct action_data	*act;
+int fighting_params (char option, char location, struct battle_data *bat, struct action_data *act)
 
 {
     char	x, y, z, pn;
@@ -402,11 +401,7 @@ next_step:
 
 
 
-int disbanded_ship (species_index, sh)
-
-int			species_index;
-struct ship_data	*sh;
-
+int disbanded_ship (int species_index, struct ship_data	*sh)
 {
     int				nampla_index;
 

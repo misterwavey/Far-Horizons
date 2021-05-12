@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "get_transact.h"
 
 
 int	num_transactions;
@@ -7,7 +8,7 @@ int	num_transactions;
 struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-get_transaction_data ()
+void get_transaction_data ()
 
 
 {

@@ -8,7 +8,12 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "get_star.h"
 
+
+void print_LSN (struct planet_data *planet, struct planet_data *home_planet);
 
 int	species_number;
 
@@ -21,7 +26,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -213,7 +218,7 @@ done:
 }
 
 
-print_LSN (planet, home_planet)
+void print_LSN (planet, home_planet)
 
 struct planet_data	*planet, *home_planet;
 

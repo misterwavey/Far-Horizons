@@ -5,6 +5,12 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "get_star.h"
+#include "scan.h"
+#include "sav_star.h"
 
 int			species_number;
 
@@ -21,7 +27,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -80,7 +86,7 @@ char *argv[];
         printf("\n\n\tERROR!  Species '%s' name too long (max 31 chars required)\n", argv[2]);
         exit(-1);
     }
-    strncpy(&spec.name, argv[2], 31);
+    strncpy(spec.name, argv[2], 31);
 
     for (i = 0; i < j; i++)
     {
@@ -98,21 +104,21 @@ char *argv[];
         printf("\n\n\tERROR!  Home planet '%s' name too long (max 31 chars required)\n", argv[3]);
         exit(-1);
     }
-    strncpy(&home_nampla.name, argv[3], 31);
+    strncpy(home_nampla.name, argv[3], 31);
     
     if (strlen(argv[4]) > 31)
     {
         printf("\n\n\tERROR!  Government '%s' name too long (max 31 chars required)\n", argv[4]);
         exit(-1);
     }
-    strncpy(&spec.govt_name, argv[4], 31);
+    strncpy(spec.govt_name, argv[4], 31);
     
     if (strlen(argv[5]) > 31)
     {
         printf("\n\n\tERROR!  Government '%s' type too long (max 31 chars required)\n", argv[5]);
         exit(-1);
     }
-    strncpy(&spec.govt_type, argv[5], 31);
+    strncpy(spec.govt_type, argv[5], 31);
 
     home_nampla.x = spec.x = x = atoi(argv[6]);
     home_nampla.y = spec.y = y = atoi(argv[7]);
@@ -329,13 +335,13 @@ char *argv[];
     for (i = 0; i < 6; i++)
 	printf (" %s ", gas_string[spec.poison_gas[i]]);
 
-    printf ("\n\n\tInitial mining base = %d.%d. Initial manufacturing base = %d.%d.\n",
+    printf ("\n\n\tInitial mining base = %ld.%ld. Initial manufacturing base = %ld.%ld.\n",
 	home_nampla.mi_base/10, home_nampla.mi_base%10,
 	home_nampla.ma_base/10, home_nampla.ma_base%10);
-    printf ("\tIn the first turn, %d raw material units will be produced,\n",
+    printf ("\tIn the first turn, %ld raw material units will be produced,\n",
 	(10 * spec.tech_level[MI] * home_nampla.mi_base)
 		/home_planet->mining_difficulty);
-    printf ("\tand the total production capacity will be %d.\n\n",
+    printf ("\tand the total production capacity will be %ld.\n\n",
 	(spec.tech_level[MA] * home_nampla.ma_base)/10);
 
     /* Update galaxy file. */
@@ -362,7 +368,7 @@ char *argv[];
     save_star_data ();
 
     /* Create species file. */
-    sprintf (filename, "sp%02d.dat\0", species_number);
+    sprintf (filename, "sp%02d.dat", species_number);
 
     species_fd = creat (filename, 0600);
     if (species_fd < 0)
@@ -387,7 +393,7 @@ char *argv[];
     close (species_fd);
 
     /* Create log file for first turn. Write home star system data to it. */
-    sprintf (filename, "sp%02d.log\0", species_number);
+    sprintf (filename, "sp%02d.log", species_number);
     log_file = fopen (filename, "w");
     if (log_file == NULL)
     {

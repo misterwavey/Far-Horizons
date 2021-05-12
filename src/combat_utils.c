@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "combat_utils.h"
 
 
 /* Look-up table for ship defensive/offensive power uses ship->tonnage
@@ -53,7 +55,7 @@ extern char	input_line[];
 
 extern FILE	*log_file;
 
-battle_error (species_number)
+void battle_error (species_number)
 
 int	species_number;
 
@@ -65,7 +67,7 @@ int	species_number;
 }
 
 
-bad_species ()
+void bad_species ()
 {
     fprintf (log_file, "!!! Order ignored:\n");
     fprintf (log_file, "!!! %s", input_line);
@@ -75,7 +77,7 @@ bad_species ()
 
 
 
-bad_argument ()
+void bad_argument ()
 {
     fprintf (log_file, "!!! Order ignored:\n");
     fprintf (log_file, "!!! %s", input_line);
@@ -85,7 +87,7 @@ bad_argument ()
 
 
 
-bad_coordinates ()
+void bad_coordinates ()
 {
     fprintf (log_file, "!!! Order ignored:\n");
     fprintf (log_file, "!!! %s", input_line);

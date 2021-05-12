@@ -5,6 +5,8 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "MakeHomes.h"
 
 
 int			potential_home_system, species_number;
@@ -14,7 +16,7 @@ struct galaxy_data	galaxy;
 extern unsigned long	last_random;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -39,7 +41,7 @@ char *argv[];
     earth_like = TRUE;
     for (num_planets = 3; num_planets < 10; num_planets++)
     {
-	sprintf (filename, "HS%d\0", num_planets);
+	sprintf (filename, "HS%d", num_planets);
 	printf ("Now doing file '%s'...\n", filename);
 
 	potential_home_system = FALSE;
@@ -83,7 +85,7 @@ int	start_temp_class[10] = {0, 29, 27, 11, 9, 8,   6,   5,  5,  3};
 	   a captured planet, rather than an original member of our solar
 	   system. */
 
-generate_planets (first_planet, num_planets, earth_like)
+void generate_planets (first_planet, num_planets, earth_like)
 
 struct planet_data	*first_planet;
 

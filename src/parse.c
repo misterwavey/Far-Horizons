@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "parse.h"
 
 
 int	end_of_file = FALSE;
@@ -11,7 +12,7 @@ FILE	*input_file;
 
 
 /* Skip white space and comments. */
-skip_junk ()
+void skip_junk ()
 {
 again:
 
@@ -70,7 +71,7 @@ again:
 }
 
 
-skip_whitespace ()
+void skip_whitespace ()
 {
     while (TRUE)
     {
@@ -333,7 +334,7 @@ int get_value ()
    try to insert a comma in the proper position.  This routine should
    be called only AFTER an error has been detected. */
 
-fix_separator ()
+void fix_separator ()
 
 {
     int		n, first_class, fix_made, num_commas;

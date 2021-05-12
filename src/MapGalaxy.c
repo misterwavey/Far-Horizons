@@ -8,6 +8,8 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_star.h"
 
 
 int	star_here[MAX_DIAMETER][MAX_DIAMETER];
@@ -20,7 +22,7 @@ extern struct star_data	*star_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

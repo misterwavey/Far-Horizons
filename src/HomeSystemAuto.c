@@ -6,7 +6,14 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "get_star.h"
+#include "sav_star.h"
+#include "sav_plan.h"
 
+void get_random_xyz ();
 
 int			x, y, z, species_number;
 
@@ -24,7 +31,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -64,7 +71,7 @@ char *argv[];
 
     /* Open file HSn, where n is the number of planets in the system. We will
 	overwrite the existing planet data with the data in the file. */
-    sprintf (filename, "HS%d\0", star->num_planets);
+    sprintf (filename, "HS%d", star->num_planets);
     home_system_fd = open (filename, 0);
     if (home_system_fd < 0)
     {
@@ -162,7 +169,7 @@ char *argv[];
 
 
 
-get_random_xyz ()
+void get_random_xyz ()
 
 {
     int		i, found;

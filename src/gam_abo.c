@@ -1,8 +1,9 @@
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "gam_abo.h"
 
-
-gamemaster_abort_option ()
+void gamemaster_abort_option ()
 
 {
 	char	answer[16];

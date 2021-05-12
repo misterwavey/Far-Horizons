@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "get_star.h"
 
 
 /* In case gamemaster creates new star systems with Edit program. */
@@ -11,7 +12,7 @@ int			num_stars, star_data_modified;
 struct star_data	*star_base;
 
 
-get_star_data ()
+void get_star_data ()
 
 {
     int		star_fd;
