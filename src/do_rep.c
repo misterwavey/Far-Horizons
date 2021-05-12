@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_rep.h"
 
 
 extern long	value;
@@ -11,7 +12,7 @@ extern struct species_data	*species;
 extern struct ship_data		*ship_base, *ship;
 
 
-do_REPAIR_command ()
+void do_REPAIR_command ()
 {
     int			i, j, n, x, y, z, age_reduction, num_dr_units,
 			total_dr_units, dr_units_used, max_age, desired_age;

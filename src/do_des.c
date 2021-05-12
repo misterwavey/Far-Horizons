@@ -9,7 +9,7 @@ extern struct species_data	*species;
 extern struct ship_data		*ship;
 
 
-do_DESTROY_command ()
+void do_DESTROY_command ()
 {
     int		found;
 

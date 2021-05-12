@@ -15,7 +15,7 @@ extern struct planet_data	*planet_base;
 extern struct nampla_data	*nampla_base, *nampla;
 
 
-do_NAME_command ()
+void do_NAME_command ()
 {
     int		i, found, name_length, unused_nampla_available;
 

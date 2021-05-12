@@ -1,6 +1,9 @@
 
 #include "fh.h"
-#include "do_scan.h"
+#include "do_scan.h"  
+#include "utils.h"  
+#include "scan.h"
+#include "get_ship.h"
 
 
 extern int			first_pass, test_mode;

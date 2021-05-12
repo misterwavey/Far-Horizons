@@ -12,7 +12,7 @@ extern struct nampla_data	*nampla, *nampla_base;
 extern struct ship_data		*ship;
 
 
-do_UNLOAD_command ()
+void do_UNLOAD_command ()
 {
     int		i, found, item_count, recovering_home_planet, alien_index;
 

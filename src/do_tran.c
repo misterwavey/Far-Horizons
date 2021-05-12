@@ -1,7 +1,10 @@
 
 #include "fh.h"
 #include "do_tran.h"
-
+#include "parse.h"
+#include "get_transfer.h"
+#include "get_ship.h"
+#include "utils.h"
 
 extern int			abbr_type, abbr_index, species_number,
 				first_pass, num_transactions,
@@ -16,7 +19,7 @@ extern struct ship_data		*ship;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_TRANSFER_command ()
+void do_TRANSFER_command ()
 
 {
     int		i, n, item_class, item_count, capacity, transfer_type,
@@ -149,7 +152,7 @@ check_ship_items:
 		}
 
 		fprintf (log_file, "! WARNING: %s", original_line);
-		fprintf (log_file, "! Ship does not have %d units. Substituting %d for %d!\n",
+		fprintf (log_file, "! Ship does not have %d units. Substituting %ld for %d!\n",
 		    item_count, num_available, item_count);
 		item_count = 0;
 		goto check_ship_items;
@@ -233,7 +236,7 @@ check_planet_items:
 		}
 
 		fprintf (log_file, "! WARNING: %s", original_line);
-		fprintf (log_file, "! Planet does not have %d units. Substituting %d for %d!\n",
+		fprintf (log_file, "! Planet does not have %d units. Substituting %ld for %d!\n",
 		    item_count, num_available, item_count);
 		item_count = 0;
 		goto check_planet_items;
@@ -336,7 +339,7 @@ get_destination:
 	    fprintf (log_file, "! WARNING: %s", original_line);
 	    fprintf (log_file, "! %s does not have sufficient carrying capacity!",
 				ship_name (ship2));
-	    fprintf (log_file, " Changed %d to 0.\n", original_count);
+	    fprintf (log_file, " Changed %ld to 0.\n", original_count);
 	    original_count = 0;
 	    goto do_capacity;
 	}

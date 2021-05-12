@@ -15,7 +15,7 @@ extern struct nampla_data	*nampla;
 extern struct ship_data		*ship, *ship_base;
 
 
-do_BASE_command ()
+void do_BASE_command ()
 
 {
     int		i, n, found, su_count, original_count, item_class, name_length,
