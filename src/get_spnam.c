@@ -9,6 +9,8 @@
 #include "fh.h"
 #include "parse.h"
 #include "utils.h"
+#include "get_spnam.h"
+#include "utils.h"
 
 
 int			g_spec_number;

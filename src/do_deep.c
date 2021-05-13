@@ -1,6 +1,10 @@
 
 #include "fh.h"
 #include "do_deep.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "dis_ship.h"
+#include "utils.h"
 
 extern int			first_pass;
 extern char			input_line[256], original_line[256],
