@@ -1,6 +1,8 @@
 
 #include "fh.h"
 #include "get_transfer.h"
+#include "get_ship.h"
+#include "get_loc.h"
 
 extern int			correct_spelling_required;
 extern char			*input_line_pointer;

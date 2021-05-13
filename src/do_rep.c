@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_rep.h"
+#include "parse.h"
+#include "utils.h"
+#include "get_ship.h"
 
 
 extern long	value;

@@ -1,6 +1,13 @@
 
 #include "fh.h"
+#include "do_jump.h"
+#include "get_ship.h"
+#include "utils.h"
+#include "parse.h"
+#include "dis_ship.h"
+#include "get_loc.h"
 
+int get_jump_portal ();
 
 int				using_alien_portal, other_species_number,
 				jump_portal_gv;
@@ -30,10 +37,7 @@ extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
 
-do_JUMP_command (jumped_in_combat, using_jump_portal)
-
-int	jumped_in_combat, using_jump_portal;
-
+void do_JUMP_command (int jumped_in_combat, int using_jump_portal)
 {
     int		i, n, found, max_xyz, temp_x, temp_y, temp_z, difference,
 		status, mishap_gv;

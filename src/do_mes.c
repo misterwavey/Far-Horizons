@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_mes.h"
+#include "get_spnam.h"
+#include "utils.h"
+#include "parse.h"
 
 
 extern int			abbr_type, first_pass, species_number,
@@ -42,7 +45,7 @@ void do_MESSAGE_command ()
 	{
 	    /* Generate a random filename. */
 	    message_number = rnd (32000);
-	    sprintf (filename, "m%d.msg\0", message_number);
+	    sprintf (filename, "m%d.msg", message_number);
 
 	    /* Make sure that this filename is not already in use. */
 	    message_fd = open (filename, 0);

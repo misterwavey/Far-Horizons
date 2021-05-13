@@ -8,7 +8,7 @@ extern struct nampla_data	*nampla_base;
 
 
 
-int disbanded_ship struct ship_data	*ship)
+int disbanded_ship (struct ship_data *ship)
 {
     int				nampla_index;
 

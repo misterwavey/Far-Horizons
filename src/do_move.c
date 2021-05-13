@@ -1,5 +1,12 @@
 
 #include "fh.h"
+#include "do_move.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "utils.h"
+#include "dis_ship.h"
+#include "get_loc.h"
+
 
 
 extern int			x, y, z, first_pass;
@@ -11,7 +18,7 @@ extern struct ship_data		*ship;
 
 
 
-do_MOVE_command ()
+void do_MOVE_command ()
 {
     int		i, n, found;
 

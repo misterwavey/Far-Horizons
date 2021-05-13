@@ -1,6 +1,11 @@
 
 #include "fh.h"
 #include "do_orbit.h"
+#include "parse.h"
+#include "get_ship.h"
+#include "dis_ship.h"
+#include "get_loc.h"
+#include "utils.h"
 
 
 extern int			first_pass, num_stars;

@@ -1,7 +1,25 @@
 #define	THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_transact.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "parse.h"
+#include "do_jump.h"
+#include "gam_abo.h"
+#include "sav_transact.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "do_move.h"
+#include "do_vis.h"
+#include "do_worm.h"
+#include "sav_star.h"
+#include "sav_plan.h"
 
+
+void do_jump_orders ();
 
 int	x, y, z, pn, nampla_index, first_pass, ship_index, species_number;
 
@@ -139,7 +157,7 @@ start_pass:
 	ship_base = ship_data[species_number - 1];
 
 	/* Open orders file for this species. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	input_file = fopen (filename, "r");
 	if (input_file == NULL)
 	{
@@ -163,7 +181,7 @@ start_pass:
 	else
 	{
 	    /* Open log file for appending. */
-	    sprintf (filename, "sp%02d.log\0", species_number);
+	    sprintf (filename, "sp%02d.log", species_number);
 	    log_file = fopen (filename, "a");
 	    if (log_file == NULL)
 	    {
@@ -290,7 +308,7 @@ no_jump_orders:
 	    {
 		if (! log_file_open)
 		{
-		    sprintf (filename, "sp%02d.log\0", species_number);
+		    sprintf (filename, "sp%02d.log", species_number);
 		    log_file = fopen (filename, "a");
 		    if (log_file == NULL)
 		    {
@@ -327,7 +345,7 @@ no_jump_orders:
 
 
 
-do_jump_orders ()
+void do_jump_orders ()
 
 {
     int		i, command;

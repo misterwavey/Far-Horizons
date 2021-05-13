@@ -2,7 +2,20 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_transact.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "parse.h"
+#include "do_int.h"
+#include "gam_abo.h"
+#include "sav_plan.h"
+#include "get_plan.h"
+#include "sav_transact.h"
+#include "do_prod.h"
 
+void do_production_orders ();
 
 int	nampla_index, ship_index, first_pass, doing_production, species_number,
 	species_index, x, y, z, pn, next_nampla_index;
@@ -33,7 +46,7 @@ extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -137,7 +150,7 @@ start_pass:
 	home_planet = planet_base + (int) nampla_base->planet_index;
 
 	/* Open orders file for this species. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	input_file = fopen (filename, "r");
 	if (input_file == NULL)
 	{
@@ -218,7 +231,7 @@ find_start:
 	else
 	{
 	    /* Open log file for appending. */
-	    sprintf (filename, "sp%02d.log\0", species_number);
+	    sprintf (filename, "sp%02d.log", species_number);
 	    log_file = fopen (filename, "a");
 	    if (log_file == NULL)
 	    {
@@ -292,7 +305,7 @@ done_orders:
 
 
 
-do_production_orders ()
+void do_production_orders ()
 
 {
     int		i, command;

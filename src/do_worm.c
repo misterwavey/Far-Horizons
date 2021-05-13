@@ -1,5 +1,11 @@
 
 #include "fh.h"
+#include "do_worm.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "utils.h"
+#include "dis_ship.h"
+#include "get_loc.h"
 
 
 extern int			num_stars, first_pass;
@@ -11,7 +17,7 @@ extern struct nampla_data	*nampla;
 extern struct ship_data		*ship;
 
 
-do_WORMHOLE_command ()
+void do_WORMHOLE_command ()
 
 {
     int		i, found, status;

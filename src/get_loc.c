@@ -7,6 +7,12 @@
 
 
 #include "fh.h"
+#include "get_loc.h"
+#include "parse.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_transact.h"
+#include "get_plan.h"
 
 
 extern int			x, y, z, pn, num_stars, abbr_type;

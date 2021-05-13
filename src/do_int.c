@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_int.h"
 
 #define MAX_INTERCEPTS 1000
 
@@ -23,7 +24,7 @@ extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
 
-do_INTERCEPT_command ()
+void do_INTERCEPT_command ()
 {
     int		i, n, status;
 
@@ -108,10 +109,7 @@ do_INTERCEPT_command ()
 #define MAX_ENEMY_SHIPS	400
 
 
-handle_intercept (intercept_index)
-
-int	intercept_index;
-
+void handle_intercept (int intercept_index)
 {
     int		i, j, n, num_enemy_ships, alien_index, enemy_index, enemy_num,
 		num_ships_left, array_index, bit_number, is_an_enemy,

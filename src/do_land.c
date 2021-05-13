@@ -1,6 +1,10 @@
 
 #include "fh.h"
 #include "do_land.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "utils.h"
+#include "get_loc.h"
 
 
 extern int			first_pass, num_transactions, species_number;

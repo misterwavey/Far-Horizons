@@ -1,6 +1,10 @@
 
 #include "fh.h"
 #include "do_unl.h"
+#include "get_ship.h"
+#include "utils.h"
+
+
 
 
 extern int			species_number;

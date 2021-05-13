@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_send.h"
+#include "get_spnam.h"
+#include "utils.h"
+#include "parse.h"
 
 
 extern int			abbr_type, abbr_index, species_number,

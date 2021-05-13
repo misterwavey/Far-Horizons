@@ -1,8 +1,9 @@
 
 #include "fh.h"
 #include "do_name.h"
-
-
+#include "utils.h"
+#include "get_loc.h"
+#include "parse.h"
 
 extern int			x, y, z, pn, num_stars, nampla_index,
 				species_index;

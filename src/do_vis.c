@@ -1,5 +1,8 @@
 
 #include "fh.h"
+#include "do_vis.h"
+#include "get_loc.h"
+#include "utils.h"
 
 
 extern int			x, y, z;
@@ -8,7 +11,7 @@ extern FILE			*log_file;
 extern struct nampla_data	*nampla;
 
 
-do_VISITED_command ()
+void do_VISITED_command ()
 {
     int	found;
 

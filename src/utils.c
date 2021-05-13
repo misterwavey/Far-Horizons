@@ -903,10 +903,7 @@ extern struct star_data		*star_base;
    star. If the star exists, TRUE will be returned; otherwise, FALSE will
    be returned. */
 
-int star_visited (x, y, z)
-
-int	x, y, z;
-
+int star_visited (int x, int y, int z)
 {
     int		i, found, species_array_index, species_bit_number;
 

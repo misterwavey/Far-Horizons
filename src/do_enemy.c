@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_enemy.h"
+#include "parse.h"
+#include "get_spnam.h"
+#include "utils.h"
 
 
 extern int			abbr_type, g_spec_number;
