@@ -1,6 +1,6 @@
 
 #include "fh.h"
-
+#include "do_dev.h"
 
 extern int	doing_production;
 extern long	value, balance, EU_spending_limit;
@@ -13,7 +13,7 @@ extern struct nampla_data	*nampla, *nampla_base;
 extern struct ship_data		*ship;
 
 
-do_DEVELOP_command ()
+void do_DEVELOP_command ()
 {
     int		i, num_CUs, num_AUs, num_IUs, more_args, load_transport,
 		capacity, resort_colony, mining_colony, production_penalty,

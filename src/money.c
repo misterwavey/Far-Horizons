@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "money.h"
 
 
 long	balance, raw_material_units, production_capacity, EU_spending_limit;
@@ -75,7 +76,7 @@ long	amount_needed;
 
 
 
-transfer_balance ()
+void transfer_balance ()
 {
     long	limiting_amount;
 

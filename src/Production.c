@@ -14,6 +14,19 @@
 #include "get_plan.h"
 #include "sav_transact.h"
 #include "do_prod.h"
+#include "money.h"
+#include "do_ally.h"
+#include "do_amb.h"
+#include "do_dev.h"
+#include "do_build.h"
+#include "do_enemy.h"
+#include "do_est.h"
+#include "do_hide.h"
+#include "do_neutral.h"
+#include "do_recy.h"
+#include "do_res.h"
+#include "do_shipyard.h"
+#include "do_upg.h"
 
 void do_production_orders ();
 

@@ -1,7 +1,6 @@
 
 #include "fh.h"
-
-
+#include "do_build.h"
 
 extern int	nampla_index, ship_index, doing_production, tonnage, sub_light,
 		abbr_index, first_pass, species_number, species_index,
@@ -17,10 +16,7 @@ extern struct ship_data		*ship_base, *ship;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_BUILD_command (continuing_construction, interspecies_construction)
-
-int	continuing_construction, interspecies_construction;
-
+void do_BUILD_command (int continuing_construction, int interspecies_construction)
 {
     int		i, n, class, critical_tech, found, name_length,
 		siege_effectiveness, cost_given, new_ship, max_tonnage,

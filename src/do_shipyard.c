@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_shipyard.h"
 
 
 extern int			doing_production, first_pass, abbr_index,

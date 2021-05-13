@@ -1,6 +1,6 @@
 
 #include "fh.h"
-
+#include "do_res.h"
 
 extern int			doing_production, first_pass, abbr_index;
 extern short			sp_tech_level[6];
@@ -10,7 +10,7 @@ extern FILE			*log_file;
 extern struct species_data	*species;
 
 
-do_RESEARCH_command ()
+void do_RESEARCH_command ()
 {
     int		n, status, tech, initial_level, current_level,
 		need_amount_to_spend;

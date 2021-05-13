@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "money.h"
 
 
 int		last_planet_produced = FALSE;

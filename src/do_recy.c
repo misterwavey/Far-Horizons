@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_recy.h"
 
 
 extern int	ship_index, doing_production, correct_spelling_required,
@@ -13,7 +14,7 @@ extern struct nampla_data	*nampla;
 extern struct ship_data		*ship, *ship_base;
 
 
-do_RECYCLE_command ()
+void do_RECYCLE_command ()
 {
     int		i, class, cargo;
 

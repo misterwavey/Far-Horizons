@@ -1,5 +1,6 @@
 
 #include "fh.h"
+#include "do_upg.h"
 
 
 extern int	doing_production;
@@ -12,7 +13,7 @@ extern struct nampla_data	*nampla;
 extern struct ship_data		*ship;
 
 
-do_UPGRADE_command ()
+void do_UPGRADE_command ()
 {
     int		age_reduction, value_specified;
 
