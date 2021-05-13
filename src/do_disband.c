@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_disband.h"
+#include "get_loc.h"
+#include "utils.h"
+#include "parse.h"
 
 extern char			input_line[256];
 extern FILE			*log_file;

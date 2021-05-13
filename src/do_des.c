@@ -1,5 +1,7 @@
 
 #include "fh.h"
+#include "get_ship.h"
+#include "utils.h"
 
 
 extern int			first_pass, correct_spelling_required;

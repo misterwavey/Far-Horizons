@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_inst.h"
+#include "parse.h"
+#include "get_loc.h"
+#include "utils.h"
 
 extern int			abbr_index, species_number;
 extern char			input_line[256];

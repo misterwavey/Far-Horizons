@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_neutral.h"
+#include "parse.h"
+#include "get_spnam.h"
+#include "utils.h"
 
 extern int			abbr_type, g_spec_number;
 extern char			input_line[256], g_spec_name[32];

@@ -271,10 +271,7 @@ struct nampla_data	*nampla;
 
 char	result_plus_commas[33];
 
-char *commas (value)
-
-long	value;
-
+char *commas (long value)
 {
     int		i, j, n, length, negative;
 

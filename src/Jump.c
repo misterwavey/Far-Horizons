@@ -25,7 +25,7 @@ extern char	input_line[256], *input_line_pointer;
 extern FILE	*input_file, *log_file;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

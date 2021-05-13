@@ -1,5 +1,8 @@
 
 #include "fh.h"
+#include "parse.h"
+#include "get_transfer.h"
+#include "utils.h"
 
 
 extern int			abbr_type, abbr_index, species_number,
