@@ -2,6 +2,9 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "utils.h"
 
 
 int			species_number;
@@ -20,7 +23,7 @@ struct ship_data	*ship_base, *ship;
 extern struct planet_data	*planet_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

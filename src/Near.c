@@ -2,6 +2,11 @@
 #define	THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "utils.h"
+#include "scan.h"
 
 
 int		species_number;
@@ -17,7 +22,7 @@ extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -68,7 +73,7 @@ again:
 	printf ("Enter x y z OR sn to scan for species n (-1 to quit): ");
 	fflush (stdout);
 	fgets (answer, sizeof (answer), stdin);
-	i = sscanf (answer, "%d", &x);
+	i = sscanf (answer, "%ld", &x);
 
 	if (i == 0)
 	{
@@ -87,7 +92,7 @@ again:
 
 	if (x < 0) goto done;
 
-	sscanf (answer, "%d %d %d", &x, &y, &z);
+	sscanf (answer, "%ld %ld %ld", &x, &y, &z);
     }
 
     /* Display scan. */
@@ -157,7 +162,7 @@ again:
 	    for (i = 0; i < MAX_ITEMS; i++)
 	    {
 		if (nampla->item_quantity[i] > 0)
-		    printf (", %d %s", nampla->item_quantity[i], item_abbr[i]);
+		    printf (", %ld %s", nampla->item_quantity[i], item_abbr[i]);
 	    }
 
 	    if (nampla->hidden) printf (", HIDING!");

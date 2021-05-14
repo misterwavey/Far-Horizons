@@ -18,6 +18,8 @@
 #include "get_transact.h"
 #include "do_locs.h"
 #include "sav_plan.h"
+#include "get_plan.h"
+
 
 int alien_is_visible (char x, char y, char z, int species_number, int alien_number);
 void print_header ();
