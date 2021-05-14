@@ -1,5 +1,8 @@
 
 #include "fh.h"
+#include "do_tel.h"
+#include "get_ship.h"
+#include "utils.h"
 
 
 #define MAX_OBS_LOCS	5000
@@ -15,7 +18,7 @@ extern struct ship_data		*ship;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_TELESCOPE_command ()
+void do_TELESCOPE_command ()
 {
     int		i, n, found, range_in_parsecs, max_range, alien_index,
 		alien_number, alien_nampla_index, alien_ship_index,

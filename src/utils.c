@@ -794,9 +794,7 @@ int life_support_needed (struct species_data *species, struct planet_data *home,
 
 
 
-void check_high_tech_items (tech, old_tech_level, new_tech_level)
-
-int	tech, old_tech_level, new_tech_level;
+void check_high_tech_items (int tech, int old_tech_level, int new_tech_level)
 
 {
     int		i;

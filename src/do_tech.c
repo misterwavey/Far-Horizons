@@ -1,5 +1,9 @@
 
 #include "fh.h"
+#include "do_tech.h"
+#include "parse.h"
+#include "utils.h"
+#include "get_spnam.h"
 
 
 extern int			abbr_index, first_pass, species_number,
@@ -11,7 +15,7 @@ extern struct species_data	*species;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_TECH_command ()
+void do_TECH_command ()
 
 {
     int		i, tech, contact_word_number, contact_bit_number,

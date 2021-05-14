@@ -11,6 +11,12 @@ resulting planets.dat file. */
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "do_locs.h"
+#include "sav_plan.h"
+
 
 
 int			species_number, species_index;
@@ -28,7 +34,7 @@ extern struct sp_loc_data	loc[MAX_LOCATIONS];
 extern struct planet_data	*planet_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

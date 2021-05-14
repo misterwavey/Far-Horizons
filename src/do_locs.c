@@ -3,6 +3,7 @@
 
 
 #include "fh.h"
+#include "do_locs.h"
 
 
 extern int			species_number, species_index, num_locs;
@@ -14,7 +15,7 @@ extern struct ship_data		*ship_base, *ship;
 extern struct sp_loc_data	loc[MAX_LOCATIONS];
 
 
-do_locations ()
+void do_locations ()
 {
     int		i;
 
@@ -56,10 +57,7 @@ do_locations ()
 
 
 
-add_location (x, y, z)
-
-char	x, y, z;
-
+void add_location (char x, char y, char z)
 {
     int		i;
 

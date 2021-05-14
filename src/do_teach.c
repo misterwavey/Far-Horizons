@@ -1,5 +1,9 @@
 
 #include "fh.h"
+#include "do_teach.h"
+#include "utils.h"
+#include "parse.h"
+#include "get_spnam.h"
 
 
 extern int			abbr_index, species_number, g_spec_number,
@@ -12,7 +16,7 @@ extern struct species_data	*species;
 extern struct trans_data	transaction[MAX_TRANSACTIONS];
 
 
-do_TEACH_command ()
+void do_TEACH_command ()
 
 {
     int		i, tech, contact_word_number, contact_bit_number,

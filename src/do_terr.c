@@ -1,6 +1,11 @@
 
 #include "fh.h"
+#include "do_terr.h"
+#include "parse.h"
+#include "get_loc.h"
+#include "utils.h"
 
+void fix_gases (struct planet_data *pl);
 
 extern int			planet_data_modified, first_pass;
 extern long			value;
@@ -11,7 +16,7 @@ extern struct species_data	*species;
 extern struct nampla_data	*nampla_base, *nampla;
 
 
-do_TERRAFORM_command ()
+void do_TERRAFORM_command ()
 {
     int				i, j, ls_needed, num_plants, got_required_gas,
 				correct_percentage;
@@ -174,10 +179,7 @@ next_change:
 }
 
 
-fix_gases (pl)
-
-struct planet_data	*pl;
-
+void fix_gases (struct planet_data *pl)
 {
     int		i, j, total, left, add_neutral;
 

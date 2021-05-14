@@ -12,7 +12,15 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_plan.h"
+#include "get_transact.h"
+#include "do_locs.h"
+#include "sav_plan.h"
 
+int alien_is_visible (char x, char y, char z, int species_number, int alien_number);
+void print_header ();
 
 int			species_number, species_index, header_printed;
 int			test_mode, verbose_mode;
@@ -32,7 +40,7 @@ extern struct trans_data	transaction[MAX_TRANSACTIONS];
 extern struct sp_loc_data	loc[MAX_LOCATIONS];
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -135,7 +143,7 @@ char *argv[];
 	ship_base = ship_data[species_number - 1];
 
 	/* Check if player submitted orders for this turn. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	i = open (filename, 0);
 	if (i < 0)
 	    orders_received = FALSE;
@@ -156,7 +164,7 @@ char *argv[];
 	}
 
 	/* Open log file for appending. */
-	sprintf (filename, "sp%02d.log\0", species_number);
+	sprintf (filename, "sp%02d.log", species_number);
 	log_file = fopen (filename, "a");
 	if (log_file == NULL)
 	{
@@ -972,7 +980,7 @@ check_for_message:
 		log_string (transaction[i].name1);
 		log_string (":\n\n");
 
-		sprintf (filename, "m%d.msg\0", (int) transaction[i].value);
+		sprintf (filename, "m%d.msg", (int) transaction[i].value);
 
 		log_message (filename);
 
@@ -1054,7 +1062,7 @@ check_for_message:
 		&&  transaction[i].donor == species_number)
 	    {
 		/* Open log file for appending. */
-		sprintf (filename, "sp%02d.log\0", species_number);
+		sprintf (filename, "sp%02d.log", species_number);
 		log_file = fopen (filename, "a");
 		if (log_file == NULL)
 		{
@@ -1178,7 +1186,7 @@ check_for_message:
 		species->econ_units -= fleet_maintenance_cost;
 		fleet_maintenance_cost = 0;
 	    }
-	}
+	}*/
 
 	/* Save fleet maintenance results. */
 	species->fleet_cost = fleet_maintenance_cost;
@@ -1204,7 +1212,7 @@ clean_up:
 
 
 
-print_header ()
+void print_header ()
 
 {
     log_string ("\nOther events:\n");
@@ -1213,11 +1221,7 @@ print_header ()
 
 
 
-alien_is_visible (x, y, z, species_number, alien_number)
-
-char	x, y, z;
-int	species_number, alien_number;
-
+int alien_is_visible (char x, char y, char z, int species_number, int alien_number)
 {
 
     int		i, j;

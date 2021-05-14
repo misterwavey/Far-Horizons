@@ -7,7 +7,16 @@
 #define	THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "utils.h"
 
+void print_ship_header ();
+void closest_unvisited_star (struct ship_data *ship);
+void print_ship (struct ship_data *ship, struct species_data *species, int species_number);
+void print_mishap_chance (struct ship_data	*ship, int destx, int desty, int destz);
+void do_planet_report (struct nampla_data *nampla, struct ship_data *s_base, struct species_data *species);
 
 int	x, y, z, printing_alien, species_number, fleet_percent_cost;
 int	test_mode, verbose_mode;
@@ -30,7 +39,7 @@ extern struct sp_loc_data	loc[MAX_LOCATIONS];
 extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -315,7 +324,7 @@ char *argv[];
 	    for (j = 0; j < MAX_ITEMS; j++)
 	    {
 		if (nampla->item_quantity[j] > 0)
-		    fprintf (report_file, ", %d %s",
+		    fprintf (report_file, ", %ld %s",
 			nampla->item_quantity[j], item_abbr[j]);
 	    }
 	    fprintf (report_file, "\n");
@@ -924,7 +933,7 @@ jump_end:
 	    /* See if there are any RMs to recycle. */
 	    n = nampla->special / 5;
 	    if (n > 0)
-		fprintf (report_file, "\tRecycle\t%d RM\n\n", 5*n);
+		fprintf (report_file, "\tRecycle\t%ld RM\n\n", 5*n);
 
 	    /* Generate DEVELOP commands for ships arriving here because of
 		AUTO command. */
@@ -1114,12 +1123,7 @@ post_end:
 
 
 
-do_planet_report (nampla, s_base, species)
-
-struct species_data	*species;
-struct nampla_data	*nampla;
-struct ship_data	*s_base;
-
+void do_planet_report (struct nampla_data *nampla, struct ship_data *s_base, struct species_data *species)
 {
     int		i, j, ship_index, header_printed, ls_needed, production_penalty;
 
@@ -1242,7 +1246,7 @@ struct ship_data	*s_base;
 
     if (nampla->mi_base > 0)
     {
-	fprintf (report_file, "\nMining base = %d.%d", nampla->mi_base/10,
+	fprintf (report_file, "\nMining base = %ld.%ld", nampla->mi_base/10,
 				nampla->mi_base%10);
 	fprintf (report_file, " (MI = %d, MD = %d.%02d)\n",
 	    species->tech_level[MI], planet->mining_difficulty/100,
@@ -1272,7 +1276,7 @@ struct ship_data	*s_base;
     {
 	if (nampla->status & RESORT_COLONY) fprintf (report_file, "\n");
 
-	fprintf (report_file, "Manufacturing base = %d.%d",
+	fprintf (report_file, "Manufacturing base = %ld.%ld",
 		nampla->ma_base/10, nampla->ma_base%10);
 	fprintf (report_file, " (MA = %d)\n", species->tech_level[MA]);
 
@@ -1345,7 +1349,7 @@ do_inventory:
 		fprintf (report_file, "\nPlanetary inventory:\n");
 	    }
 
-	    fprintf (report_file, "   %ss (%s,C%d) = %d",
+	    fprintf (report_file, "   %ss (%s,C%d) = %ld",
 			item_name[i], item_abbr[i],
 			item_carry_capacity[i], nampla->item_quantity[i]);
 	    if (i == PD)
@@ -1428,7 +1432,7 @@ do_inventory:
 
 
 
-print_ship_header ()
+void print_ship_header ()
 {
     fprintf (report_file, "  Name                          ");
     if (printing_alien)
@@ -1442,12 +1446,7 @@ print_ship_header ()
 
 extern char	full_ship_id[64];
 
-print_ship (ship, species, species_number)
-
-struct species_data	*species;
-struct ship_data	*ship;
-int			species_number;
-
+void print_ship (struct ship_data *ship, struct species_data *species, int species_number)
 {
     int		i, n, length, capacity, need_comma;
 
@@ -1514,11 +1513,7 @@ int			species_number;
 }
 
 
-print_mishap_chance (ship, destx, desty, destz)
-
-struct ship_data	*ship;
-int			destx, desty, destz;
-
+void print_mishap_chance (struct ship_data	*ship, int destx, int desty, int destz)
 {
     int		mishap_GV, mishap_age;
 
@@ -1557,10 +1552,7 @@ int			destx, desty, destz;
 }
 
 
-closest_unvisited_star (ship)
-
-struct ship_data	*ship;
-
+void closest_unvisited_star (struct ship_data *ship)
 {
     int		i, found, species_array_index, species_bit_number;
 

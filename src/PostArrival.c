@@ -9,7 +9,35 @@
 #include "get_plan.h"
 #include "utils.h"
 #include "parse.h"
+#include "gam_abo.h"
+#include "get_transact.h"
+#include "sav_transact.h"
+#include "get_star.h"
+#include "sav_plan.h"
+#include "get_plan.h"
+#include "sav_star.h"
+#include "do_ally.h"
+#include "do_deep.h"
+#include "do_des.h"
+#include "do_enemy.h"
+#include "do_land.h"
+#include "do_mes.h"
+#include "do_name.h"
+#include "do_neutral.h"
+#include "do_orbit.h"
+#include "do_rep.h"
+#include "do_scan.h"
+#include "do_send.h"
+#include "do_teach.h"
+#include "do_tran.h"
+#include "do_tel.h"
+#include "do_terr.h"
 
+
+
+
+
+void do_postarrival_orders ();
 
 int	post_arrival_phase = TRUE;
 
@@ -142,7 +170,7 @@ start_pass:
 	species->auto_orders = FALSE;
 
 	/* Open orders file for this species. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	input_file = fopen (filename, "r");
 	if (input_file == NULL)
 	{
@@ -223,7 +251,7 @@ find_start:
 	else
 	{
 	    /* Open log file for appending. */
-	    sprintf (filename, "sp%02d.log\0", species_number);
+	    sprintf (filename, "sp%02d.log", species_number);
 	    log_file = fopen (filename, "a");
 	    if (log_file == NULL)
 	    {
@@ -282,7 +310,7 @@ done_orders:
 
 
 
-do_postarrival_orders ()
+void do_postarrival_orders ()
 
 {
     int		i, command;

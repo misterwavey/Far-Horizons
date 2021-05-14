@@ -21,3 +21,5 @@ void delete_ship (struct ship_data *ship);
 int check_population (struct nampla_data *nampla);
 char *commas (long value);
 int star_visited (int x, int y, int z);
+void check_high_tech_items (int tech, int old_tech_level, int new_tech_level);
+void save_location_data ();
