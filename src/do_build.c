@@ -1,6 +1,13 @@
 
 #include "fh.h"
 #include "do_build.h"
+#include "get_spnam.h"
+#include "parse.h"
+#include "money.h"
+#include "utils.h"
+#include "get_transfer.h"
+#include "get_ship.h"
+
 
 extern int	nampla_index, ship_index, doing_production, tonnage, sub_light,
 		abbr_index, first_pass, species_number, species_index,

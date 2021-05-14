@@ -1,6 +1,12 @@
 
 #include "fh.h"
-#include "do_upg.h"
+#include "do_upg.h"
+#include "get_ship.h"
+#include "parse.h"
+#include "money.h"
+#include "utils.h"
+
+
 
 
 extern int	doing_production;
@@ -92,7 +98,7 @@ void do_UPGRADE_command ()
 	original_cost = (3 * original_cost) / 4;
 
     /* Get amount to be spent. */
-    if (value_specified = get_value ())
+    if ((value_specified = get_value ()))
     {
 	if (value == 0)
 	    amount_to_spend = balance;

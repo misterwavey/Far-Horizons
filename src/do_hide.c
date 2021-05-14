@@ -1,5 +1,8 @@
 
 #include "fh.h"
+#include "money.h"
+#include "utils.h"
+#include "do_hide.h"
 
 
 extern int			doing_production, first_pass, abbr_index;
@@ -10,7 +13,7 @@ extern struct species_data	*species;
 extern struct nampla_data	*nampla;
 
 
-do_HIDE_command ()
+void do_HIDE_command ()
 {
     int		n, status;
 

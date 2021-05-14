@@ -1,6 +1,10 @@
 
 #include "fh.h"
 #include "money.h"
+#include "gam_abo.h"
+#include "utils.h"
+#include "parse.h"
+#include "money.h"
 
 
 int		last_planet_produced = FALSE;

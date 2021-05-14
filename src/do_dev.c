@@ -1,6 +1,14 @@
 
 #include "fh.h"
 #include "do_dev.h"
+#include "utils.h"
+#include "money.h"
+#include "parse.h"
+#include "get_loc.h"
+#include "get_ship.h"
+
+
+void start_dev_log (int num_CUs, int num_IUs, int num_AUs);
 
 extern int	doing_production;
 extern long	value, balance, EU_spending_limit;
@@ -76,7 +84,7 @@ void do_DEVELOP_command ()
     /* See if there are any more arguments. */
     tp = input_line_pointer;
     more_args = FALSE;
-    while (c = *tp++)
+    while ((c = *tp++))
     {
 	if (c == ';'  ||  c == '\n') break;
 	if (c == ' '  ||  c == '\t') continue;
@@ -249,7 +257,7 @@ void do_DEVELOP_command ()
     /* See if there are more arguments. */
     tp = input_line_pointer;
     more_args = FALSE;
-    while (c = *tp++)
+    while ((c = *tp++))
     {
 	if (c == ';'  ||  c == '\n') break;
 	if (c == ' '  ||  c == '\t') continue;
@@ -488,10 +496,7 @@ void do_DEVELOP_command ()
 }
 
 
-start_dev_log (num_CUs, num_IUs, num_AUs)
-
-int	num_CUs, num_IUs, num_AUs;
-
+void start_dev_log (int num_CUs, int num_IUs, int num_AUs)
 {
     log_string ("    ");
     log_int (num_CUs);  log_string (" Colonist Unit");

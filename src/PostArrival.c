@@ -2,6 +2,13 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_transact.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "utils.h"
+#include "parse.h"
 
 
 int	post_arrival_phase = TRUE;
@@ -30,7 +37,7 @@ extern FILE		*input_file, *log_file;
 extern unsigned long	last_random;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

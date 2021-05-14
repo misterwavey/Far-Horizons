@@ -1,5 +1,9 @@
 
 #include "fh.h"
+#include "do_amb.h"
+#include "parse.h"
+#include "utils.h"
+#include "money.h"
 
 
 extern int			doing_production, first_pass, abbr_index;
@@ -9,7 +13,7 @@ extern FILE			*log_file;
 extern struct nampla_data	*nampla;
 
 
-do_AMBUSH_command ()
+void do_AMBUSH_command ()
 {
     int		n, status;
 

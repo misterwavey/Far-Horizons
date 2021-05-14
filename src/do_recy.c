@@ -1,6 +1,14 @@
 
 #include "fh.h"
 #include "do_recy.h"
+#include "parse.h"
+#include "utils.h"
+#include "get_ship.h"
+#include "get_transact.h"
+#include "get_loc.h"
+#include "get_star.h"
+#include "get_plan.h"
+
 
 
 extern int	ship_index, doing_production, correct_spelling_required,

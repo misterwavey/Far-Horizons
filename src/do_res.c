@@ -1,6 +1,9 @@
 
 #include "fh.h"
 #include "do_res.h"
+#include "parse.h"
+#include "money.h"
+#include "utils.h"
 
 extern int			doing_production, first_pass, abbr_index;
 extern short			sp_tech_level[6];

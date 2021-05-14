@@ -1,5 +1,8 @@
 
 #include "fh.h"
+#include "utils.h"
+#include "get_spnam.h"
+#include "money.h"
 
 
 extern int			first_pass, doing_production, g_spec_number;
@@ -10,7 +13,7 @@ extern struct nampla_data	*nampla_base;
 extern struct ship_data		*ship_base;
 
 
-do_ESTIMATE_command ()
+void do_ESTIMATE_command ()
 
 {
     int		i, max_error, estimate[6], contact_word_number,

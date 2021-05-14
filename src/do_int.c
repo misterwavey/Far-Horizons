@@ -1,6 +1,10 @@
 
 #include "fh.h"
 #include "do_int.h"
+#include "money.h"
+#include "utils.h"
+#include "parse.h"
+
 
 #define MAX_INTERCEPTS 1000
 

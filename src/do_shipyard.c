@@ -1,6 +1,8 @@
 
 #include "fh.h"
 #include "do_shipyard.h"
+#include "money.h"
+#include "utils.h"
 
 
 extern int			doing_production, first_pass, abbr_index,
@@ -12,7 +14,7 @@ extern struct species_data	*species;
 extern struct nampla_data	*nampla;
 
 
-do_SHIPYARD_command ()
+void do_SHIPYARD_command ()
 {
     long	cost;
 
