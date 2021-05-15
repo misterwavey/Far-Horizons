@@ -2,11 +2,12 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
 
 
 struct galaxy_data	galaxy;
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

@@ -5,7 +5,13 @@
 #define	THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
 
+void print_mishap_chance (struct ship_data *ship, int destx, int desty, int destz);
+void closest_unvisited_star (struct ship_data *ship);
 
 struct galaxy_data	galaxy;
 struct planet_data	*planet, *home_planet;
@@ -24,7 +30,7 @@ extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -79,7 +85,7 @@ char *argv[];
 	if (! data_in_memory[species_index]) continue;
 
 	/* Check if we have orders. */
-	sprintf (filename, "sp%02d.ord\0", species_number);
+	sprintf (filename, "sp%02d.ord", species_number);
 	i = open (filename, 0);
 	if (i >= 0)
 	{
@@ -104,7 +110,7 @@ char *argv[];
 		species_number, species->name);
 
 	/* Open message file. */
-	sprintf (filename, "noorders.txt\0");
+	sprintf (filename, "noorders.txt");
 	message_file = fopen (filename, "r");
 	if (message_file == NULL)
 	{
@@ -367,7 +373,7 @@ unload_ship:
 	    /* See if there are any RMs to recycle. */
 	    n = nampla->special / 5;
 	    if (n > 0)
-		fprintf (orders_file, "\tRecycle\t%d RM\n\n", 5*n);
+		fprintf (orders_file, "\tRecycle\t%ld RM\n\n", 5*n);
 
 	    /* Generate DEVELOP commands for ships arriving here because of
 		AUTO command. */
@@ -532,11 +538,7 @@ unload_ship:
 }
 
 
-print_mishap_chance (ship, destx, desty, destz)
-
-struct ship_data	*ship;
-int			destx, desty, destz;
-
+void print_mishap_chance (struct ship_data *ship, int destx, int desty, int destz)
 {
     int		mishap_GV, mishap_age;
 
@@ -576,10 +578,7 @@ int			destx, desty, destz;
 
 
 
-closest_unvisited_star (ship)
-
-struct ship_data	*ship;
-
+void closest_unvisited_star (struct ship_data *ship)
 {
     int		i, found, species_array_index, species_bit_number;
 

@@ -10,12 +10,14 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
-
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "utils.h"
 
 extern int		num_stars, num_planets;
 
 int			species_index, species_number;
-
 
 struct galaxy_data	galaxy;
 struct star_data	*star;
@@ -27,9 +29,7 @@ struct ship_data	*ship_base, *ship;
 extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
-
-
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];

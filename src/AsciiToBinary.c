@@ -6,6 +6,9 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "sav_plan.h"
+#include "sav_star.h"
+#include "utils.h"
 
 
 int			num_species, species_index, species_number;
@@ -24,7 +27,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -106,10 +109,10 @@ char *argv[];
 	fscanf (ascii_file, " %d", &n); star->worm_y = n;
 	fscanf (ascii_file, " %d", &n); star->worm_z = n;
 	fscanf (ascii_file, " %d", &n); star->planet_index = n;
-	fscanf (ascii_file, " %ld", &n); star->message = n;
+	fscanf (ascii_file, " %d", &n); star->message = n;
 	for (j = 0; j < NUM_CONTACT_WORDS; j++)
 	{
-	    fscanf (ascii_file, " %ld", &n);
+	    fscanf (ascii_file, " %d", &n);
 	    star->visited_by[j] = n;
 	}
 	fscanf (ascii_file, "\n");
@@ -160,7 +163,7 @@ char *argv[];
 	fscanf (ascii_file, " %d", &n); planet->mining_difficulty = n;
 	fscanf (ascii_file, " %d", &n); planet->econ_efficiency = n;
 	fscanf (ascii_file, " %d", &n); planet->md_increase = n;
-	fscanf (ascii_file, " %ld\n", &n); planet->message = n;
+	fscanf (ascii_file, " %d\n", &n); planet->message = n;
     }
 
     /* Do species data. */
@@ -232,26 +235,26 @@ char *argv[];
 	}
 	for (j = 0; j < 6; j++)
 	{
-	    fscanf (ascii_file, " %ld", &n);
+	    fscanf (ascii_file, " %d", &n);
 	    species->tech_eps[j] = n;
 	}
-	fscanf (ascii_file, " %ld", &n); species->econ_units = n;
-	fscanf (ascii_file, " %ld", &n); species->hp_original_base = n;
-	fscanf (ascii_file, " %ld", &n); species->fleet_cost = n;
-	fscanf (ascii_file, " %ld\n", &n); species->fleet_percent_cost = n;
+	fscanf (ascii_file, " %d", &n); species->econ_units = n;
+	fscanf (ascii_file, " %d", &n); species->hp_original_base = n;
+	fscanf (ascii_file, " %d", &n); species->fleet_cost = n;
+	fscanf (ascii_file, " %d\n", &n); species->fleet_percent_cost = n;
 	for (j = 0; j < NUM_CONTACT_WORDS; j++)
 	{
-	    fscanf (ascii_file, " %ld", &n);
+	    fscanf (ascii_file, " %d", &n);
 	    species->contact[j] = n;
 	}
 	for (j = 0; j < NUM_CONTACT_WORDS; j++)
 	{
-	    fscanf (ascii_file, " %ld", &n);
+	    fscanf (ascii_file, " %d", &n);
 	    species->ally[j] = n;
 	}
 	for (j = 0; j < NUM_CONTACT_WORDS; j++)
 	{
-	    fscanf (ascii_file, " %ld", &n);
+	    fscanf (ascii_file, " %d", &n);
 	    species->enemy[j] = n;
 	}
 	fscanf (ascii_file, "\n");
@@ -302,16 +305,16 @@ char *argv[];
 	    fscanf (ascii_file, " %d", &n); nampla->auto_AUs = n;
 	    fscanf (ascii_file, " %d", &n); nampla->IUs_to_install = n;
 	    fscanf (ascii_file, " %d", &n); nampla->AUs_to_install = n;
-	    fscanf (ascii_file, " %ld", &n); nampla->mi_base = n;
-	    fscanf (ascii_file, " %ld", &n); nampla->ma_base = n;
-	    fscanf (ascii_file, " %ld\n", &n); nampla->pop_units = n;
+	    fscanf (ascii_file, " %d", &n); nampla->mi_base = n;
+	    fscanf (ascii_file, " %d", &n); nampla->ma_base = n;
+	    fscanf (ascii_file, " %d\n", &n); nampla->pop_units = n;
 	    for (j = 0; j < MAX_ITEMS; j++)
 	    {
-		fscanf (ascii_file, " %ld", &n);
+		fscanf (ascii_file, " %d", &n);
 		nampla->item_quantity[j] = n;
 	    }
-	    fscanf (ascii_file, " %ld", &n); nampla->use_on_ambush = n;
-	    fscanf (ascii_file, " %ld\n", &n); nampla->message = n;
+	    fscanf (ascii_file, " %d", &n); nampla->use_on_ambush = n;
+	    fscanf (ascii_file, " %d\n", &n); nampla->message = n;
 	}
 
 	/* Allocate enough memory for all ships. */

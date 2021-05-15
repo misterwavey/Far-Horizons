@@ -367,11 +367,14 @@ int        *gridsize;
       }
    }
 
-   if (!flag->h)
-      if (lim->plotzmin <= 0 && lim->plotzmax >= 0)
+   if (!flag->h) {
+      if (lim->plotzmin <= 0 && lim->plotzmax >= 0) {
          lim->planeheight = 0;
-      else
+         }
+      else {
          lim->planeheight = lim->plotzmin;
+      }
+   }
 }
 
 void
@@ -831,7 +834,7 @@ FLAGINFO   *flag;
    flag->o = 0;
 
    while (--argc > 0  && (**++argv) == '-') {
-      while (c = *++*argv)
+      while ((c = *++*argv))
          switch (c) {
             case 'x': flag->x = 1; break;
             case 'y': flag->y = 1; break;

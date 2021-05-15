@@ -2,6 +2,23 @@
 #define THIS_IS_MAIN
 
 #include "fh.h"
+#include "utils.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "parse.h"
+#include "sav_star.h"
+#include "sav_plan.h"
+
+
+void set_ship ();
+void set_species();
+void set_star();
+void set_planet();
+void get_species();
+void set_nampla();
+void save_species ();
+
+
 
 
 int			species_number, species_index, data_was_modified,
@@ -25,7 +42,7 @@ extern struct planet_data	*planet_base;
 
 
 
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -50,7 +67,7 @@ char *argv[];
     exit (-1);
 }
 
-set_species()
+void set_species()
 
 {
     long	n;
@@ -148,7 +165,7 @@ next_item:
 
 
 
-set_nampla ()
+void set_nampla ()
 
 {
     int		i, found;
@@ -262,7 +279,7 @@ again:
 	    }
 	    else if (strcasecmp (argument[next_arg], "ib") == 0)
 	    {
-		printf ("SP %s, PL %s, mining base = %d", species->name, nampla->name,
+		printf ("SP %s, PL %s, mining base = %ld", species->name, nampla->name,
 		    nampla->mi_base);
 
 		if (++next_arg < num_arguments)
@@ -282,7 +299,7 @@ again:
 	    }
 	    else if (strcasecmp (argument[next_arg], "ab") == 0)
 	    {
-		printf ("SP %s, PL %s, manufacturing base = %d", species->name, nampla->name,
+		printf ("SP %s, PL %s, manufacturing base = %ld", species->name, nampla->name,
 		    nampla->ma_base);
 
 		if (++next_arg < num_arguments)
@@ -302,7 +319,7 @@ again:
 	    }
 	    else if (strcasecmp (argument[next_arg], "ap") == 0)
 	    {
-		printf ("SP %s, PL %s, available population = %d", species->name, nampla->name,
+		printf ("SP %s, PL %s, available population = %ld", species->name, nampla->name,
 		    nampla->pop_units);
 
 		if (++next_arg < num_arguments)
@@ -333,7 +350,7 @@ again:
 
 
 
-set_ship ()
+void set_ship ()
 
 {
     int		i, found;
@@ -368,7 +385,7 @@ again:
     {
 	case ITEM_CLASS:
 
-	    printf ("SP %s, %s, %ld %ss", species->name, ship_name (ship),
+	    printf ("SP %s, %s, %d %ss", species->name, ship_name (ship),
 		ship->item_quantity[abbr_index], item_name[abbr_index]);
 
 	    if (++next_arg < num_arguments)
@@ -542,7 +559,7 @@ again:
 
 
 
-set_star()
+void set_star()
 
 {
     int		i, x, y, z, found;
@@ -608,7 +625,7 @@ next_item:
 
 
 
-set_planet()
+void set_planet()
 
 {
     int		i, x, y, z, pn, found;
@@ -763,7 +780,7 @@ next_item:
 
 
 
-get_species ()
+void get_species ()
 
 {
     int		species_fd;
@@ -776,7 +793,7 @@ get_species ()
     species = &spec_data[species_index];
 
     /* Open the species data file. */
-    sprintf (filename, "sp%02d.dat\0", species_number);
+    sprintf (filename, "sp%02d.dat", species_number);
     species_fd = open (filename, 0);
     if (species_fd < 0)
     {
@@ -837,7 +854,7 @@ get_species ()
 
 
 
-save_species ()
+void save_species ()
 
 {
     int		species_fd;
@@ -848,7 +865,7 @@ save_species ()
 
 
     /* Create the new species data file. */
-    sprintf (filename, "sp%02d.dat\0", species_number);
+    sprintf (filename, "sp%02d.dat", species_number);
     species_fd = creat (filename, 0600);
     if (species_fd < 0)
     {
@@ -1039,22 +1056,22 @@ struct ship_data	*ship;
     if (ship_is_distorted)
     {
 	if (ship->class == TR)
-	    sprintf (full_ship_id, "%s%d ???\0", ship_abbr[ship->class],
+	    sprintf (full_ship_id, "%s%d ???", ship_abbr[ship->class],
 		ship->tonnage);
 	else if (ship->class == BA)
-	    sprintf (full_ship_id, "BAS ???\0");
+	    sprintf (full_ship_id, "BAS ???");
 	else
-	    sprintf (full_ship_id, "%s ???\0", ship_abbr[ship->class]);
+	    sprintf (full_ship_id, "%s ???", ship_abbr[ship->class]);
     }
     else if (ship->class == TR)
     {
-	sprintf (full_ship_id, "%s%d%s %s\0",
+	sprintf (full_ship_id, "%s%d%s %s",
 		ship_abbr[ship->class], ship->tonnage, ship_type[ship->type],
 		ship->name);
     }
     else
     { 
-	sprintf (full_ship_id, "%s%s %s\0",
+	sprintf (full_ship_id, "%s%s %s",
 		ship_abbr[ship->class], ship_type[ship->type], ship->name);
     }
 
@@ -1070,7 +1087,7 @@ struct ship_data	*ship;
 	if (ship->status != UNDER_CONSTRUCTION)
 	{
 	    /* Do age. */
-	    sprintf (temp, "A%d,\0", effective_age);
+	    sprintf (temp, "A%d,", effective_age);
 	    strcat (full_ship_id, temp);
 	}
     }
@@ -1080,25 +1097,25 @@ struct ship_data	*ship;
     switch (status)
     {
 	case UNDER_CONSTRUCTION:
-		sprintf (temp, "C\0");
+		sprintf (temp, "C");
 		break;
 	case IN_ORBIT:
-		sprintf (temp, "O%d\0", ship->pn);
+		sprintf (temp, "O%d", ship->pn);
 		break;
 	case ON_SURFACE:
-		sprintf (temp, "L%d\0", ship->pn);
+		sprintf (temp, "L%d", ship->pn);
 		break;
 	case IN_DEEP_SPACE:
-		sprintf (temp, "D\0");
+		sprintf (temp, "D");
 		break;
 	case FORCED_JUMP:
-		sprintf (temp, "FJ\0");
+		sprintf (temp, "FJ");
 		break;
 	case JUMPED_IN_COMBAT:
-		sprintf (temp, "WD\0");
+		sprintf (temp, "WD");
 		break;
 	default:
-		sprintf (temp, "***???***\0");
+		sprintf (temp, "***???***");
 		fprintf (stderr, "\n\tWARNING!!!  Internal error in subroutine 'ship_name'\n\n");
     }
 
@@ -1106,7 +1123,7 @@ struct ship_data	*ship;
 
     if (ship->type == STARBASE)
     {
-	sprintf (temp, ",%ld tons\0", 10000L * (long) ship->tonnage);
+	sprintf (temp, ",%ld tons", 10000L * (long) ship->tonnage);
 	strcat (full_ship_id, temp);
     }
 
