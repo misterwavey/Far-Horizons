@@ -2,12 +2,31 @@
 #define	THIS_IS_MAIN
 
 #include "fh.h"
+#include "get_gal.h"
+#include "get_star.h"
+#include "get_plan.h"
+#include "sav_star.h"
+#include "utils.h"
+#include "sav_plan.h"
+#include "do_locs.h"
+#include "gen_plan.h"
 
+void edit_star ();
+void edit_planet ();
+void edit_species ();
+void create_star ();
+void edit_species_stats ();
+void edit_nampla ();
+void create_nampla ();
+void edit_ship ();
+void create_ship ();
+void get_name (char name[]);
+int get_value ();
+int get_location(int need_planet);
 
 int	x, y, z, pn, species_number, species_index;
 
 long	value;
-
 
 struct galaxy_data	galaxy;
 struct star_data	*star;
@@ -23,8 +42,7 @@ extern struct star_data		*star_base;
 extern struct planet_data	*planet_base;
 
 
-
-main (argc, argv)
+int main (argc, argv)
 
 int argc;
 char *argv[];
@@ -117,7 +135,7 @@ again:
 
 
 
-create_star ()
+void create_star ()
 {
     int		i;
 
@@ -172,7 +190,7 @@ no_change:
 
 
 
-edit_star ()
+void edit_star ()
 
 {
     int		i;
@@ -209,7 +227,7 @@ edit_star ()
 
 
 
-edit_planet ()
+void edit_planet ()
 
 {
     int		i, n, p, num_gases;
@@ -301,12 +319,11 @@ next_gas:
     n = 0;
     for (i = 0; i < 4; i++)
     {
-	printf ("\t%d - %s = %d\%", i, gas_string[planet->gas[i]],
-		planet->gas_percent[i]);
-	n += planet->gas_percent[i];
+	printf ("\t%d - %s = %d%%", i, gas_string[planet->gas[i]], planet->gas_percent[i]); 
+    n += planet->gas_percent[i];
     }
 
-    printf ("\n\nTotal percentage = %d\%.\n", n);
+    printf ("\n\nTotal percentage = %d%%.\n", n);
 
     printf ("\nEnter 'index, new gas number, new percent' or RETURN for as is: ");
     get_name (answer);
@@ -326,7 +343,7 @@ next_gas:
 
 
 
-edit_species ()
+void edit_species ()
 
 {
     int		n, found, sp_index, species_number, option;
@@ -392,7 +409,7 @@ again:
 }
 
 
-edit_species_stats ()
+void edit_species_stats ()
 
 {
     int		i, n, delete, array_index, bit_number;
@@ -467,8 +484,7 @@ next_tech_knowledge:
 
 next_tech_eps:
     printf ("\nTech experience points:\n\n");
-    for (i = 0; i < 6; i++) printf ("\t%d - %s = %d\n", i+1, tech_name[i],
-	species->tech_eps[i]);
+    for (i = 0; i < 6; i++) printf ("\t%d - %s = %ld\n", i+1, tech_name[i], species->tech_eps[i]);
 
     printf ("\nEnter 'tech number-space-new eps' or RETURN to continue: ");
     get_name (answer);
@@ -634,7 +650,7 @@ next_enemy_mask:
 
 
 
-edit_nampla ()
+void edit_nampla ()
 
 {
     int		i, n, nampla_number, index_changed, found;
@@ -790,7 +806,7 @@ next_item:
     n = 0;
     for (i = 0; i < MAX_ITEMS; i++)
     {
-	printf ("\t%d: %d %ss", i+1, nampla->item_quantity[i], item_abbr[i]);
+	printf ("\t%d: %ld %ss", i+1, nampla->item_quantity[i], item_abbr[i]);
 	if (++n % 4 == 0) printf ("\n");
     }
     if (n % 4) printf ("\n");
@@ -831,7 +847,7 @@ next_item:
 
 
 
-create_nampla ()
+void create_nampla ()
 
 {
     int		i, found, unused_nampla_available, nampla_index;
@@ -915,7 +931,7 @@ create_nampla ()
 
 
 
-edit_ship ()
+void edit_ship ()
 
 {
     int		i, n, ship_number;
@@ -1074,7 +1090,7 @@ next_item:
 
 
 
-create_ship ()
+void create_ship ()
 
 {
     int		i, found, unused_ship_available, ship_index;
@@ -1141,30 +1157,27 @@ create_ship ()
 
 
 
-int get_location (need_planet)
-
-int need_planet;
-
+int get_location (int need_planet)
 {
     int		i, found;
 
 
     printf ("\nEnter x-coordinate: ");
-    if (get_value() != 1) return;
+    if (get_value() != 1) return FALSE;
     x = value;
 
     printf ("\nEnter y-coordinate: ");
-    if (get_value() != 1) return;
+    if (get_value() != 1) return FALSE;
     y = value;
 
     printf ("\nEnter z-coordinate: ");
-    if (get_value() != 1) return;
+    if (get_value() != 1) return FALSE;
     z = value;
 
     if (need_planet)
     {
 	printf ("Enter planet number: ");
-	if (get_value () != 1) return;
+	if (get_value () != 1) return FALSE;
 	pn = value;
     }
     else
@@ -1204,10 +1217,7 @@ int need_planet;
 
 
 
-get_name (name)
-
-char	name[];
-
+void get_name (char name[])
 {
     int		i;
     char	temp[1024];
@@ -1238,7 +1248,7 @@ again:
 
 
 
-get_value ()
+int get_value ()
 
 {
     char	temp[1024];
