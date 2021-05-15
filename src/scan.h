@@ -1,1 +1,1 @@
-void scan (char x, char y, char z);
+void scan(char x, char y, char z);

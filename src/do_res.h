@@ -1,1 +1,1 @@
-void do_RESEARCH_command ();
+void do_RESEARCH_command();

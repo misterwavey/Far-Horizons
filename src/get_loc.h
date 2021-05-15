@@ -1,1 +1,1 @@
-int get_location ();
+int get_location();

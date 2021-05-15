@@ -1,1 +1,1 @@
-void do_SEND_command ();
+void do_SEND_command();

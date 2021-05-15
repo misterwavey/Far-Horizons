@@ -1,1 +1,1 @@
-void do_SHIPYARD_command ();
+void do_SHIPYARD_command();

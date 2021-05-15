@@ -1,1 +1,1 @@
-void do_ORBIT_command ();
+void do_ORBIT_command();

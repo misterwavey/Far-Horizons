@@ -1,1 +1,1 @@
-int get_transfer_point ();
+int get_transfer_point();

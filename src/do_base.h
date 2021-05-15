@@ -1,1 +1,1 @@
-void do_BASE_command ();
+void do_BASE_command();

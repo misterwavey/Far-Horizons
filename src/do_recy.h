@@ -1,1 +1,1 @@
-void do_RECYCLE_command ();
+void do_RECYCLE_command();

@@ -1,1 +1,1 @@
-void do_TELESCOPE_command ();
+void do_TELESCOPE_command();

@@ -1,1 +1,1 @@
-void save_star_data ();
+void save_star_data();

@@ -1,1 +1,1 @@
-void do_SCAN_command ();
+void do_SCAN_command();

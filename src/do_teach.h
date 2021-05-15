@@ -1,1 +1,1 @@
-void do_TEACH_command ();
+void do_TEACH_command();

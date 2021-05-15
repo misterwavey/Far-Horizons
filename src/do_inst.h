@@ -1,1 +1,1 @@
-void do_INSTALL_command ();
+void do_INSTALL_command();

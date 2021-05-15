@@ -1,1 +1,1 @@
-void do_AMBUSH_command ();
+void do_AMBUSH_command();

@@ -1,1 +1,1 @@
-void save_planet_data ();
+void save_planet_data();

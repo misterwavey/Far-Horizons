@@ -1,1 +1,1 @@
-void consolidate_option (char option, char location);
+void consolidate_option(char option, char location);

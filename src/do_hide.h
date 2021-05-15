@@ -1,1 +1,1 @@
-void do_HIDE_command ();
+void do_HIDE_command();

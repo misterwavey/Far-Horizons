@@ -1,1 +1,1 @@
-void do_TERRAFORM_command ();
+void do_TERRAFORM_command();

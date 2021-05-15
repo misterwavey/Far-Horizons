@@ -1,1 +1,1 @@
-void do_VISITED_command ();
+void do_VISITED_command();

@@ -1,1 +1,1 @@
-void get_galaxy_data ();
+void get_galaxy_data();

@@ -1,1 +1,1 @@
-void do_DESTROY_command ();
+void do_DESTROY_command();

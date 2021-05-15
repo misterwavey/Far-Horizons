@@ -1,1 +1,1 @@
-void get_planet_data ();
+void get_planet_data();

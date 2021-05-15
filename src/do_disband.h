@@ -1,1 +1,1 @@
-void do_DISBAND_command ();
+void do_DISBAND_command();

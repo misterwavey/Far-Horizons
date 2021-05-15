@@ -1,1 +1,1 @@
-void do_NAME_command ();
+void do_NAME_command();

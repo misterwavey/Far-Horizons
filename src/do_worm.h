@@ -1,1 +1,1 @@
-void do_WORMHOLE_command ();
+void do_WORMHOLE_command();

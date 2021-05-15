@@ -1,1 +1,1 @@
-void do_MOVE_command ();
+void do_MOVE_command();

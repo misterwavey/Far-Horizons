@@ -1,1 +1,1 @@
-int get_species_name ();
+int get_species_name();

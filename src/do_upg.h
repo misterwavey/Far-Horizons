@@ -1,1 +1,1 @@
-void do_UPGRADE_command ();
+void do_UPGRADE_command();

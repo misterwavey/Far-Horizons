@@ -1,1 +1,1 @@
-void do_NEUTRAL_command ();
+void do_NEUTRAL_command();

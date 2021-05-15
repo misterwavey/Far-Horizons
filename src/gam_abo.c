@@ -1,17 +1,15 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "gam_abo.h"
 
-void gamemaster_abort_option ()
+void gamemaster_abort_option() {
+    char answer[16];
 
-{
-	char	answer[16];
-
-	/* Give the gamemaster a chance to abort. */
-	printf ("*** Gamemaster safe-abort option ... type q or Q to quit: ");
-	fflush (stdout);
-	fgets (answer, 16, stdin);
-	if (answer[0] == 'q'  ||  answer[0] == 'Q')
-	    exit (0);
+    /* Give the gamemaster a chance to abort. */
+    printf("*** Gamemaster safe-abort option ... type q or Q to quit: ");
+    fflush(stdout);
+    fgets(answer, 16, stdin);
+    if (answer[0] == 'q' || answer[0] == 'Q') {
+        exit(0);
+    }
 }

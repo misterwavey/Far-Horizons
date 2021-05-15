@@ -1,1 +1,1 @@
-void do_MESSAGE_command ();
+void do_MESSAGE_command();

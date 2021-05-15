@@ -1,1 +1,1 @@
-int get_ship ();
+int get_ship();

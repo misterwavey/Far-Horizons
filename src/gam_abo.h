@@ -1,1 +1,1 @@
-void gamemaster_abort_option ();
+void gamemaster_abort_option();

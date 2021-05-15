@@ -1,1 +1,1 @@
-void save_transaction_data ();
+void save_transaction_data();

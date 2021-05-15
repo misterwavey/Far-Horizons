@@ -1,1 +1,1 @@
-void do_ALLY_command ();
+void do_ALLY_command();

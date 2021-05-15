@@ -1,2 +1,2 @@
 #include "fh.h"
-void do_battle (struct battle_data *bat);
+void do_battle(struct battle_data *bat);

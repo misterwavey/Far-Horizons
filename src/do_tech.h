@@ -1,1 +1,1 @@
-void do_TECH_command ();
+void do_TECH_command();

@@ -1,1 +1,1 @@
-void do_ENEMY_command ();
+void do_ENEMY_command();

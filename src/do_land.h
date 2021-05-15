@@ -1,1 +1,1 @@
-void do_LAND_command ();
+void do_LAND_command();
