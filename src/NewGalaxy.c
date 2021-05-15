@@ -37,8 +37,8 @@ char *argv[];
 
     char	*cp, star_here[MAX_DIAMETER][MAX_DIAMETER];
 
-    struct star_data	*current_star, *star_base, *star, *worm_star;
-    struct planet_data	*planet_base, *planet;
+    struct star_data *star_base, *star, *worm_star;
+    struct planet_data *planet_base, *planet;
 
 
     /* Check for valid command line. */
@@ -279,7 +279,6 @@ char *argv[];
 	    star->planet_index = pl_index;
 
 	    /* Generate planets and write to file "planets.dat". */
-	    current_star = star;
 	    generate_planets (planet, star_num_planets);
 
 	    star->home_system = FALSE;
@@ -291,8 +290,10 @@ char *argv[];
 	    ++st_index;
 	    ++star;
 
-	    if (st_index % 10  ==  0)
-		fprintf (stdout, "\b\b\b\b%4d", st_index);  fflush (stdout);
+	    if (st_index % 10  ==  0) {
+			fprintf (stdout, "\b\b\b\b%4d", st_index);  
+			fflush (stdout);
+		}
 	}
     }
 
